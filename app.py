@@ -4,8 +4,11 @@ import pandas as pd
 import json
 import dash
 
-app = Dash(__name__, suppress_callback_exceptions=True)
 
+app = Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=['style.css'])
+image_path = 'assets/background.jpg'
+
+html.Img(src=image_path)
 
 # Import the diferent pages 
 from pages import page_start
@@ -24,7 +27,7 @@ with open('questions.json', 'r') as file:
 # Define the app layout as HTML and css
 app.layout = html.Div([
     dcc.Location(id='url',pathname = "/page_start", refresh=True),
-    html.Div(id='page-content', children = page_start.layout),
+    html.Div(id='page-content', children = page_start.layout, className='general'),
 ])
 
 @callback(
