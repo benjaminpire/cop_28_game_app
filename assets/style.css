@@ -1,0 +1,69 @@
+/* general */
+.general {
+    display: flex; /* Pour créer un conteneur flex */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 700px;
+    background-color: #FFCCBC;
+    padding: 10px;
+}
+
+
+/* Title */
+.title {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+/* startpage boxes */
+.start-box {
+    width: 30%;
+    height: 100px;
+    background-color: None;
+    border: 1px solid #e74c3c;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+/* inputs */
+.input {
+    width: 100px;
+    height: 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Button */
+.button {
+    width: 100px;
+    height: 50px;
+    color:#FFFFFF;
+    background-color: #000000;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+/* dropdown */
+.dropdown {
+    width: 100px;
+    height: 50px;
+    color:#000000;
+    background-color: #000000;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
