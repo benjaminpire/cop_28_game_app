@@ -4,10 +4,108 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 100%;
-    height: 700px;
+    width: 100vw;
+    height: 100vh;
     background-color: #FFCCBC;
+    padding: 40px;
+}
+
+
+/* startpage boxes */
+.start-box {
+    width: 30%;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+
+/* page question boxes */
+.page-quest-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* page question boxes */
+.quest-box {
+    display: flex;
+    justify-content: center;    
+    height: 25px;
+    color:#FFFFFF;
+    background-color: #000000;
+    border-radius: 10px;
     padding: 10px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* score */
+.score {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    color:#000000;
+    background-color: None;
+    border: 5px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 40px;
+}
+
+/* score-box */
+.score-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    color:#000000;
+    background-color: None;
+    border: None;
+    border-radius: 10px;
+}
+
+
+/* Reponse */
+.reponse {
+    display: flex;
+    justify-content: center;
+    "width: 400px;
+    height: 50px;
+    color:#000000;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Graph */
+.graph {
+    width: 400px;
+    height: 350px;
+}
+
+
+/* dropdown */
+.dropdown {
+    width: 400px;
+    height: 50px;
 }
 
 
@@ -15,20 +113,9 @@
 .title {
     font-family: Helvetica, sans-serif;
     text-align: center;
+    margin-top: 40px;
 }
 
-
-/* startpage boxes */
-.start-box {
-    width: 30%;
-    height: 100px;
-    background-color: None;
-    border: 1px solid #e74c3c;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-}
 
 /* inputs */
 .input {
@@ -41,29 +128,17 @@
     text-align: center;
 }
 
+
 /* Button */
 .button {
     width: 100px;
     height: 50px;
-    color:#FFFFFF;
-    background-color: #000000;
-    border: 1px solid #FFFFFF;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-}
-
-/* dropdown */
-.dropdown {
-    width: 100px;
-    height: 50px;
     color:#000000;
-    background-color: #000000;
-    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
