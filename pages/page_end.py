@@ -7,7 +7,7 @@ import dash
 dash.register_page(__name__)
 
 layout = html.Div([
-    html.H1(children='Game application', style={'textAlign':'center'}),
+    html.H1(children='thank', style={'textAlign':'center'}),
     
 ])
 

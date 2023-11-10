@@ -3,18 +3,19 @@
     display: flex; /* Pour créer un conteneur flex */
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    width: 100vw;
-    height: 100vh;
+    justify-content: space-around;
+    
+    width: 100%;
+    min-height: 100vh;
     background-color: #FFCCBC;
-    padding: 40px;
 }
 
 
 /* startpage boxes */
 .start-box {
-    width: 30%;
-    border-radius: 10px;
+    display: flex; /* Pour créer un conteneur flex */
+    justify-content: flex-end;
+    flex-direction: column;
     margin: 10px;
     text-align: center;
 }
@@ -24,26 +25,39 @@
 .page-quest-box {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    width: 400px;
-    height: 400px;
+    flex-direction: row-reverse;
+    
     margin-top: 10px;
     margin-bottom: 10px;
     align-items: center;
     text-align: center;
 }
 
+/* sub page question boxes */
+.sub-page-quest-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
 
 /* page question boxes */
 .quest-box {
     display: flex;
     justify-content: center;    
-    height: 25px;
     color:#FFFFFF;
     background-color: #000000;
     border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 40px;
+    
+    padding-right: 10px;
+    padding-left: 10px;
+    
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 30px;
     margin-top: 20px;
     align-items: center;
     text-align: center;
@@ -56,23 +70,11 @@
     height: 50px;
     width: 50px;
     color:#000000;
-    background-color: None;
+    background-color: #FFFFFF;
     border: 5px solid #000000;
     border-radius: 10px;
     padding: 10px;
     font-size: 40px;
-}
-
-/* score-box */
-.score-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    width: 100%;
-    color:#000000;
-    background-color: None;
-    border: None;
-    border-radius: 10px;
 }
 
 
@@ -80,11 +82,9 @@
 .reponse {
     display: flex;
     justify-content: center;
-    "width: 400px;
     height: 50px;
     color:#000000;
     background-color: #FFFFFF;
-    border: 1px solid #000000;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
@@ -121,7 +121,6 @@
 .input {
     width: 100px;
     height: 10px;
-    border: 1px solid #e74c3c;
     border-radius: 8px;
     padding: 10px;
     margin: 10px;
@@ -135,10 +134,33 @@
     height: 50px;
     color:#000000;
     background-color: #FFFFFF;
-    border: 1px solid #000000;
     border-radius: 10px;
     padding: 10px;
+    margin-top: 40px;
     margin-bottom: 40px;
     text-align: center;
 }
+
+
+@media (max-width : 700px) {
+    .page-quest-box {
+        flex-direction: column;
+    }
+}
+
+@media (max-width : 400px) {
+    /* Graph */
+    .graph {
+        width: 100%;
+        height: 250px;
+    }
+
+    /* dropdown */
+    .dropdown {
+        width: 100%;
+        height: 30px;
+    }
+}
+
+
 
