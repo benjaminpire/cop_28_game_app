@@ -9,28 +9,25 @@ import dash
 layout = html.Div([
     html.H1(children='WMO Report Game', className='title'),
     html.Div([
-        html.Div([dcc.Input(id='user-name', 
-                      type='text', 
-                      placeholder="",
-                      className='input')],
-                 style={'left': '10px'}, 
-                 className='start-box'),
-        html.Div([dcc.Input(id='user-age', 
+
+        html.Div([
+            html.H3('Age'),            
+            dcc.Input(id='user-age', 
                       type='text', 
                       placeholder="",
                       className='input')],
                  className='start-box'),
 
-        html.Div([dcc.Input(id='user-prof', 
+        html.Div([
+            html.H3('Current ocupation'),            
+            dcc.Input(id='user-prof', 
                       type='text',
                       placeholder="",
                       className='input')], 
                  className='start-box'),
     ],  style={'display': 'flex', 'flex-direction': 'row'} ),
-    html.Div([html.Button('Start', 
+    html.Button('Start', 
                 id='start-button', 
                 n_clicks=0, 
-                className='button')],
-             className='start-box')],
-    className='general')
+                className='button')])
 
