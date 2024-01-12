@@ -1,50 +1,60 @@
 [
     {
-        "question": "question 1",
+        "text": "The key greenhouse gases, carbon dioxide, methane, and nitrous oxide, have both anthropogenic and natural sources. This graph represent the decadal averaged mole fraction in parts per million (ppm) of these 3 gas, 1991-2020 compared to the pre-industrial levels.",
+        "question": "Which gas has increased the most since 1750 ?",
         "options": ["CO2", "CH4", "NO2"],
         "answer": 1
     },
     {
-        "question": "question 2",
-        "options": ["R1", "R2", "R3"],
+        "text": "Numbers of reporting countries that recorded their highest temperature of the 1961-2020 period during the decade (2011-2020). !!!! explain why there is 0.5 coountries sometimes !!!!!!",
+        "question": "How much reporting countries recorded their highest temperature in the latest decade (2011-2020) in Asia ?",
+        "options": ["9", "10", "8"],
         "answer": 1
     },
     {
+        "text": "The 1960-2020 ensemble mean by decade of global ocean heat content anomalies relative to the 2005-2017 climatology",
         "question": "question 3",
         "options": ["R1", "R2", "R3"],
         "answer": 1
     },
     {
-        "question": "question 4",
-        "options": ["R1", "R2", "R3"],
+        "text": "Evolution of the global mean sea level measured by satellite altimetry since 1993.",
+        "question": "By how much has the sea level risen since 1993?",
+        "options": ["320.98 mm", "652.35 mm", "100.62 mm"],
+        "answer": 2
+    },
+    {
+        "text": "Decadal mass changes of reference glaciers with more than 30 years of ongoing glaciological measurements",
+        "question": "What is the decadal mass changes average of reference glaciers in the latest decade (2011-2020)?",
+        "options": ["0.4673 m.w.e", "0.579 m.w.e", "0.939 m.w.e"],
         "answer": 1
     },
     {
-        "question": "question 5",
-        "options": ["R1", "R2", "R3"],
+        "text": "Cumulative decadal ice sheet mass change from 1992 to 2020 for the Greenland and Antarctic Ice Sheet in Gt (gigatons), from the Ice Sheet Mass Balance Inter-Comparison Exercise (IMBIE) which combines 50 satellite-based measurements of ice sheet mass balance.",
+        "question": "Which glacier has melted the fastest in the last decade?",
+        "options": ["Greenland", "Antarctic"],
         "answer": 1
     },
     {
-        "question": "question 6",
-        "options": ["R1", "R2", "R3"],
+        "text": "Seasonal maximum and minimum sea ice extent for the Arctic and Antarctic annual values",
+        "question": "What was the year where the Arctic had the lowest minimum sea ice extent ?",
+        "options": ["2017", "2022", "2012"],
         "answer": 1
     },
     {
-        "question": "question 7",
-        "options": ["R1", "R2", "R3"],
-        "answer": 1
-    }
-    {
+        "text": "",
         "question": "question 8",
         "options": ["R1", "R2", "R3"],
         "answer": 1
-    }
+    },
     {
+        "text": "",
         "question": "question 9",
         "options": ["R1", "R2", "R3"],
         "answer": 1
-    }
+    },
     {
+        "text": "",
         "question": "question 10",
         "options": ["R1", "R2", "R3"],
         "answer": 1

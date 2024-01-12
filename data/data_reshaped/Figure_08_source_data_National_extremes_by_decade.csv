@@ -1,0 +1,37 @@
+,Mesure,Decade,region,value
+0,High temp,1961-1970,Africa,2.0
+1,High temp,1971-1980,Africa,3.0
+2,High temp,1981-1990,Africa,1.0
+3,High temp,1991-2000,Africa,4.0
+4,High temp,2001-2010,Africa,2.0
+5,High temp,2011-2020,Africa,9.0
+6,High temp,1961-1970,Asia,0.0
+7,High temp,1971-1980,Asia,1.0
+8,High temp,1981-1990,Asia,2.0
+9,High temp,1991-2000,Asia,2.5
+10,High temp,2001-2010,Asia,2.5
+11,High temp,2011-2020,Asia,10.0
+12,High temp,1961-1970,South america,0.5
+13,High temp,1971-1980,South america,1.0
+14,High temp,1981-1990,South america,1.0
+15,High temp,1991-2000,South america,0.5
+16,High temp,2001-2010,South america,1.5
+17,High temp,2011-2020,South america,2.5
+18,High temp,1961-1970,"North & central america, carribean",0.0
+19,High temp,1971-1980,"North & central america, carribean",2.5
+20,High temp,1981-1990,"North & central america, carribean",1.5
+21,High temp,1991-2000,"North & central america, carribean",1.5
+22,High temp,2001-2010,"North & central america, carribean",3.5
+23,High temp,2011-2020,"North & central america, carribean",2.0
+24,High temp,1961-1970,South west Pacific,1.0
+25,High temp,1971-1980,South west Pacific,2.0
+26,High temp,1981-1990,South west Pacific,0.0
+27,High temp,1991-2000,South west Pacific,1.0
+28,High temp,2001-2010,South west Pacific,0.0
+29,High temp,2011-2020,South west Pacific,1.0
+30,High temp,1961-1970,Europe,0.33
+31,High temp,1971-1980,Europe,1.0
+32,High temp,1981-1990,Europe,1.0
+33,High temp,1991-2000,Europe,6.33
+34,High temp,2001-2010,Europe,12.0
+35,High temp,2011-2020,Europe,13.34
