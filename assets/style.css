@@ -52,6 +52,7 @@
     background-color: #000000;
     border-radius: 10px;
     
+    max-width: 400px;
     padding-right: 10px;
     padding-left: 10px;
     
@@ -68,7 +69,6 @@
 .score {
     display: flex;
     height: 50px;
-    width: 50px;
     color:#000000;
     background-color: #FFFFFF;
     border: 5px solid #000000;
@@ -77,12 +77,30 @@
     font-size: 40px;
 }
 
+/* question text */
+.question_text {
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    max-width: 600px;
+    color:#000000;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    text-align: center;
+    opacity: .9;
+}
+
 
 /* Reponse */
 .reponse {
     display: flex;
     justify-content: center;
     height: 50px;
+    max-width: 700px;
     color:#000000;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -93,6 +111,27 @@
     align-items: center;
     text-align: center;
 }
+
+/* Reponse when clicked */
+.reponse_click {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    color:#FFFFFF;
+    background-color: #000000;
+    border-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
 
 
 /* Graph */
@@ -113,7 +152,7 @@
 .title {
     font-family: Helvetica, sans-serif;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 15px;
 }
 
 
@@ -136,11 +175,33 @@
     background-color: #FFFFFF;
     border-radius: 10px;
     padding: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+
     text-align: center;
 }
 
+/* Button */
+.button_box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    width: 100px;
+    height: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 60px;
+    margin-left: 60px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Version button */
+.button_version {
+    color:#000000;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+
+    text-align: center;
+}
 
 @media (max-width : 700px) {
     .page-quest-box {
