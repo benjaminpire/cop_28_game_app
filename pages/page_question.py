@@ -24,11 +24,6 @@ layout_q1 =[dcc.Dropdown(df_1_2_3["gas"].unique(), 'CO2',
             dcc.Graph(figure = px.bar(df_1_2_3[df_1_2_3["gas"]=="CO2"], x='Decade', y='averaged mole fraction'), 
                       id='graph',
                      className='graph')]
-# answers
-layout_answers =[[html.Button(children= answer, 
-                              id='button_R'+str(i), 
-                              n_clicks=0, 
-                              className='reponse') for i, answer in enumerate(questions[j]['options'])] for j in range(len(questions))]
 
 
 ###############
@@ -148,7 +143,17 @@ quest_page_list = [layout_q1,
 #layout base
 ###############
 
+# answers
+layout_answers =[[html.Button(children = answer, 
+                              id='button_R_'+str(i), 
+                              n_clicks=0, 
+                              className='reponse') for i, answer in enumerate(questions[j]['options'])] for j in range(len(questions))]
+
+
+
 layout = html.Div([
+
+    # Header
     dcc.Store(id='q_number', data=0),
     dcc.Store(id='score', data=0),
     html.Div([html.Img(src=wmo_logo, style={'height':'100px', 'width':'100px'}),
@@ -159,26 +164,33 @@ layout = html.Div([
     html.H5(children=questions[0]['text'],
             id = "explaina_of_quest",
             className='question_text'),
+
     html.Div([ 
-        html.Div([dcc.Dropdown(df_1_2_3["gas"].unique(), 'CO2', 
-                               id='dropdown1_1',
-                               className='dropdown'),
-                  dcc.Graph(figure = px.bar(df_1_2_3[df_1_2_3["gas"]=="CO2"], x='Decade', y='averaged mole fraction'), 
-                            id='graph',
-                            className='graph')], 
-                 id='graph_box',
-                 className='sub-page-quest-box' ),
+    # Dropdown + Graph 
         html.Div([
+            dcc.Dropdown(df_1_2_3["gas"].unique(), 'CO2', 
+                         id='dropdown1_1',
+                         className='dropdown'),
+            dcc.Graph(figure = px.bar(df_1_2_3[df_1_2_3["gas"]=="CO2"], x='Decade', y='averaged mole fraction'), 
+                      id='graph',
+                      className='graph')
+        ], id='graph_box', className='sub-page-quest-box' ),
+    # Question + Answers
+        html.Div([
+            # Question
             html.Div([
                 html.P(questions[0]['question']),
             ], id = "question",
             className='quest-box'),
-            html.Div(layout_answers[0],
-                     id="answer"),
+            
+            # Answers
+            html.Div(layout_answers[0], id="answer"),
             dcc.Store(id='good_responds', data=questions[0]['answer']),
             dcc.Store(id='responded_answered', data=None)
         ], className='sub-page-quest-box')
     ], className='page-quest-box'),
+
+    # Footer  
     html.Div([
         html.Div([
             html.Button('Next question', 

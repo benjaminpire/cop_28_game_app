@@ -47,6 +47,7 @@ app.layout = html.Div([
 ###################################
 # Game process callbacks
 ###################################
+###################################
 # Start the game
 @callback(
     Output('page-content', 'children', allow_duplicate=True),
@@ -59,34 +60,49 @@ def start_game(n_clicks_start, pathname):
         return page_question.layout
     else: 
         return page_start.layout
+###################################
 
+    
 ###################################
 # Answer the question
 @callback(
-    #[Output('button_R'+str(i), 'style', allow_duplicate=True) for i in range 3,
+    [Output(f'button_R_{i}', 'className') for i in range(len(questions[question_number]['options']))] +
+    [Output(f'button_R_{i}' , 'n_clicks') for i in range(len(questions[question_number]['options']))] +
     [Output('answer-button', 'style'),
     Output('responded_answered', 'data')],
-    [Input('answer', 'n_clicks')],
+    [Input(f'button_R_{i}' , 'n_clicks') for i in range(len(questions[question_number]['options']))],
     prevent_initial_call=True
 )
-def answer_question(n_clicks_response):
+def answer_question(*button_clicks):
     # initiate Display|Hide the answer button
     answer_button = {'display': 'none'}
     ctx = dash.callback_context
+    print("ctx.triggered_id :" + str(ctx.triggered_id))
     if not ctx.triggered_id:
         raise PreventUpdate
-    print(ctx)
-    clicked_button_id = ctx.triggered_id.split('.')[0]
-    #if the user click on the button -> 
-    if n_clicks_response > 0:
-        answer_button = None
-    return answer_button, clicked_button_id
+    clicked_button_id = ctx.triggered_id.split('_')[-1]
+    print("You clicked on the button : " + str(clicked_button_id))
+
+    button_styles = ["reponse"] * len(questions[question_number]['options'])
+    button_clicks_list = list(button_clicks)
+
+    for i, clicks in enumerate(button_clicks_list):
+        if clicks > 0:
+            answer_button = None
+            button_styles[i] = "reponse_click"
+            button_clicks_list[i] = 0
+        print(f"style de la rep {i} : " + button_styles[i])
+
+
+
+        
+    return tuple(button_styles + button_clicks_list + [answer_button, clicked_button_id])
 
 ###################################
 
 
 
-
+'''
 ###################################
 # click on check 
 @callback(
@@ -108,6 +124,7 @@ def good_answer(n_clicks_answer, good_responds, responded_answered, score):
 
 #| good_responds==responded_answered
 ###################################
+'''
 
 
 
