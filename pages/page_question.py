@@ -6,12 +6,12 @@ import plotly.graph_objects as go
 import json
 
 # csv 
-wmo_logo = 'assets/wmo_logo.jpg'
+wmo_logo = 'assets/img/wmo_logo.jpg'
 
 
 
 # get the question 
-with open('questions.json', 'r') as file:
+with open('assets/json/questions_state_clim_dec_report.json', 'r') as file:
     questions = json.load(file)
 
 ###############
@@ -192,16 +192,22 @@ layout = html.Div([
 
     # Footer  
     html.Div([
+        html.H1('Next question', 
+                    id='success_message', 
+                    style = {'display': 'none'})
+    ], className='page-quest-box'),
+    # Footer  
+    html.Div([
         html.Div([
             html.Button('Next question', 
-                        id='next-button', 
+                        id='next_button', 
                         n_clicks=0, 
                         className='button',
                         style = {'display': 'none'})], className='button_box'),
         html.Div([
-            html.Button('Get the result', 
-                        id='answer-button', 
-                        n_clicks=0, 
+            html.Button('Get the result',
+                        id='answer_button',
+                        n_clicks=0,
                         className='button',
                         style = {'display': 'none'})], className='button_box')
     ], className='page-quest-box')]
