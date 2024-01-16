@@ -12,6 +12,7 @@ html.Img(src=image_path)
 
 # Import the diferent pages 
 from pages import page_start
+from pages import page_select_report
 from pages import page_question
 from pages import page_end
 
@@ -27,7 +28,7 @@ df_17 = pd.read_csv('data/data_reshaped/Figure 17 - Sea ice seasonal extremes ye
 
 
 # get the question 
-with open('questions.json', 'r') as file:
+with open('assets/json/questions_state_clim_dec_report.json', 'r') as file:
     questions = json.load(file)
 
 question_number = 0
@@ -45,30 +46,71 @@ app.layout = html.Div([
 
 
 ###################################
+###################################
 # Game process callbacks
 ###################################
+## Start the game
 ###################################
-# Start the game
 @callback(
     Output('page-content', 'children', allow_duplicate=True),
-    [Input('start-button', 'n_clicks'),
+    [Input('start_button', 'n_clicks'),
     Input('url', 'pathname')],
     prevent_initial_call=True
 )
 def start_game(n_clicks_start, pathname):
     if n_clicks_start > 0:
-        return page_question.layout
+        print("/n")
+        print("###########")
+        print("Start Game")
+        print("###########")
+        return page_select_report.layout
     else: 
         return page_start.layout
 ###################################
+## Select the report
+###################################
+@callback(
+    Output('select_button', 'style', allow_duplicate=True),
+    [Input('decadal_version', 'n_clicks')],
+    prevent_initial_call=True
+)
+def select_version(n_clicks_version):
+    if n_clicks_version > 0:
+        return None
+    else: 
+        return {'display': 'none'}
+###################################
+## Validation of the selected report
+###################################
+@callback(
+    Output('page-content', 'children', allow_duplicate=True),
+    [Input('select_button', 'n_clicks'),
+    Input('url', 'pathname')],
+    prevent_initial_call=True
+)
+def validate_version(n_clicks_select, pathname):
+    if n_clicks_select > 0:
+        print("###########")
+        print("###########")
+        print("###########")
+        print("Play the Game")
+        print("###########")
+        print("###########")
+        print("###########")
+        return page_question.layout
+    else: 
+        return page_select_report.layout
+###################################
+
 
     
 ###################################
-# Answer the question
+## Answer the question
+###################################
 @callback(
     [Output(f'button_R_{i}', 'className') for i in range(len(questions[question_number]['options']))] +
     [Output(f'button_R_{i}' , 'n_clicks') for i in range(len(questions[question_number]['options']))] +
-    [Output('answer-button', 'style'),
+    [Output('answer_button', 'style'),
     Output('responded_answered', 'data')],
     [Input(f'button_R_{i}' , 'n_clicks') for i in range(len(questions[question_number]['options']))],
     prevent_initial_call=True
@@ -77,11 +119,12 @@ def answer_question(*button_clicks):
     # initiate Display|Hide the answer button
     answer_button = {'display': 'none'}
     ctx = dash.callback_context
-    print("ctx.triggered_id :" + str(ctx.triggered_id))
     if not ctx.triggered_id:
         raise PreventUpdate
-    clicked_button_id = ctx.triggered_id.split('_')[-1]
+    clicked_button_id = int(ctx.triggered_id.split('_')[-1])
+    print("###########")
     print("You clicked on the button : " + str(clicked_button_id))
+    print("###########")
 
     button_styles = ["reponse"] * len(questions[question_number]['options'])
     button_clicks_list = list(button_clicks)
@@ -91,53 +134,37 @@ def answer_question(*button_clicks):
             answer_button = None
             button_styles[i] = "reponse_click"
             button_clicks_list[i] = 0
-        print(f"style de la rep {i} : " + button_styles[i])
-
-
-
-        
     return tuple(button_styles + button_clicks_list + [answer_button, clicked_button_id])
 
 ###################################
-
-
-
-'''
+## click on check and check the answer
 ###################################
-# click on check 
 @callback(
-    [Output('score', 'data'),
-    Output('next-button', 'style', allow_duplicate=True)],
-    [Input('answer-button', 'n_clicks'),
-    Input('good_responds', 'data'),
+    [Output('score_display', 'data'),
+    Output('next_button', 'style', allow_duplicate=True),
+    Output('success_message', 'style'),
+    Output('success_message', 'children'),
+    Output('answer_button', 'n_clicks')],
+    [Input('answer_button', 'n_clicks'),
     Input('responded_answered', 'data'),
     Input('score', 'data')],
     prevent_initial_call=True
 )
-def good_answer(n_clicks_answer, good_responds, responded_answered, score):
-    print(good_responds)
-    print(responded_answered)
-    if n_clicks_answer > 0 :
-        return score+1 , None
-    else: 
-        return score, {'display': 'none'}
-
-#| good_responds==responded_answered
-###################################
-'''
-
-
-
-
-
-
-
-
-
-
+def good_answer(n_clicks_check, responded_answered, score):
+    print("You answered : " + str(responded_answered))
+    print("The correct answer : " + str(questions[question_number]['answer']))
+    if (n_clicks_check > 0) & (responded_answered == questions[question_number]['answer']) :
+        n_clicks_check = 0
+        return score+1 , None, {'color': 'green'}, 'Success !!', n_clicks_check
+    elif (n_clicks_check > 0) & (responded_answered != questions[question_number]['answer']): 
+        n_clicks_check = 0
+        return score, {'display': 'none'}, {'color': 'red'}, 'Fail !!', n_clicks_check
+    else :
+        n_clicks_check = 0
+        return score, {'display': 'none'}, {'display': 'none'}, None, n_clicks_check
 
 ###################################
-#TODOOOOOOOO
+## Click on next to go to the next question
 ###################################
 @callback(
     [Output('q_number', 'data'),
@@ -146,9 +173,9 @@ def good_answer(n_clicks_answer, good_responds, responded_answered, score):
     Output('question', 'children'),
     Output('answer', 'children'),
     Output('score_display', 'children'),
-    Output('next-button', 'style', allow_duplicate=True),
-    Output('answer-button', 'style', allow_duplicate=True)],
-    [Input('next-button', 'n_clicks'),
+    Output('next_button', 'style', allow_duplicate=True),
+    Output('answer_button', 'style', allow_duplicate=True)],
+    [Input('next_button', 'n_clicks'),
     Input('q_number', 'data'),
     Input('score', 'data')],
     prevent_initial_call=True
@@ -157,20 +184,38 @@ def next_question(n_clicks_next, q_number, score):
     
     if n_clicks_next > 0 | q_number<len(page_question.quest_page_list):
         q_number+= 1
+        question_number=q_number
+        print("###########")
+        print("Next Question")
+        print("###########")
+        print("You are at the question : " + str(q_number+1))
+        return (q_number,
+                questions[q_number]['text'], 
+                page_question.quest_page_list[q_number], 
+                [html.P(questions[q_number]['question'])],
+                page_question.layout_answers[q_number],
+                (str(score) + '/' + str(len(questions))),
+                {'display': 'none'},
+                {'display': 'none'})
         
-    #elif n_clicks_next > 0 | q_number==len(page_question.quest_page_list):
-
-    return (q_number,
-            questions[q_number]['text'], 
-            page_question.quest_page_list[q_number], 
-            [html.P(questions[q_number]['question'])],
-            page_question.layout_answers[q_number],
-            (str(score) + '/' + str(len(questions))),
-            None,
-            None)
-
-#    if (q_number<len(questions) & q_number<len(page_question.quest_page_list)):
-
+    elif n_clicks_next > 0 | q_number==len(page_question.quest_page_list):
+        return (q_number,
+                questions[q_number]['text'], 
+                page_question.quest_page_list[q_number], 
+                [html.P(questions[q_number]['question'])],
+                page_question.layout_answers[q_number],
+                (str(score) + '/' + str(len(questions))),
+                None,
+                None)
+    else :
+        return (q_number,
+                questions[q_number]['text'], 
+                page_question.quest_page_list[q_number], 
+                [html.P(questions[q_number]['question'])],
+                page_question.layout_answers[q_number],
+                (str(score) + '/' + str(len(questions))),
+                None,
+                None)
 
 
 
@@ -195,6 +240,7 @@ def display_end (n_clicks_end, pathname, q_number):
 
 
 
+###################################
 ###################################
 # dropdown callbacks
 ###################################
